@@ -42,6 +42,34 @@ $firstTwoWords = array_slice($words, 0, 2);
 						</p>
 					</a>
 				</li>
+
+				<li class="nav-item">
+                    <a href="<?= base_url() ?>user/edit_user/<?=$user_info->user_id?>" class="nav-link">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>My Referral</p>
+                    </a>
+                </li>
+
+				<li class="nav-item">
+                    <a href="<?= base_url() ?>user/Withdraw/<?=$user_info->user_id?>" class="nav-link">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>Withdraw</p>
+                    </a>
+                </li>
+
+				<li class="nav-item">
+                    <a href="<?= base_url() ?>user/withdraw_history/<?=$user_info->user_id?>" class="nav-link">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>Withdrawal History</p>
+                    </a>
+                </li>
+
+				<li class="nav-item">
+                    <a href="<?= base_url() ?>user/product_buy_history/<?=$user_info->user_id?>" class="nav-link">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>Product Purchase History</p>
+                    </a>
+                </li>
                 
                 <li class="nav-item">
                     <a href="<?= base_url() ?>user/edit_user/<?=$user_info->user_id?>" class="nav-link">

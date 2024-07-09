@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-<input type="hidden" name="u_id" value="<?=$data->u_id?>">
+<input type="hidden" name="user_name" value="<?=$data->user_id?>">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="field-1" class="control-label">Full Name</label>

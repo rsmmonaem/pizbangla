@@ -107,14 +107,14 @@ class user_modification_model  extends CI_Model
     function update_user_modification() {
         $this->load->library("form_validation");
         $this->form_validation->set_rules("full_name", "full_name", "xss_clean");
-        $this->form_validation->set_rules("user_name", "user_name", "xss_clean");
-        $this->form_validation->set_rules("pass_word", "pass_word", "xss_clean");
-        $this->form_validation->set_rules("user_type", "user_type", "xss_clean");
-        $this->form_validation->set_rules("status", "status", "xss_clean");
-		$this->form_validation->set_rules("u_id", "u_id", "xss_clean");
+        // $this->form_validation->set_rules("user_name", "user_name", "xss_clean");
+        // $this->form_validation->set_rules("pass_word", "pass_word", "xss_clean");
+        // $this->form_validation->set_rules("user_type", "user_type", "xss_clean");
+        // $this->form_validation->set_rules("status", "status", "xss_clean");
+		$this->form_validation->set_rules("user_id", "user_id", "xss_clean");
 
 
-		$u_id = $this->input->post('u_id');
+		$u_id = $this->input->post('user_id');
            
 
             //zone change
@@ -126,14 +126,14 @@ class user_modification_model  extends CI_Model
 
             $data = array(
                 'full_name' => $this->input->post('full_name'),
-                'user_name' => $this->input->post('user_name'),
-                'pass_word' => $this->input->post('pass_word'),
-                'user_type' => $this->input->post('user_type'),
-                'status' => $this->input->post('status'),
+                // 'user_name' => $this->input->post('user_name'),
+                // 'pass_word' => $this->input->post('pass_word'),
+                // 'user_type' => $this->input->post('user_type'),
+                // 'status' => $this->input->post('status'),
             );
 			
 
-            $this->db->where('u_id', $u_id);
+            $this->db->where('user_id', $u_id);
             $this->db->update('admin_user', $data);
         }
     
