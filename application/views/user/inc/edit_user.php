@@ -24,7 +24,7 @@
 
             <div class="row">
 
-                <form class="col-md-12" action="<?php echo base_url('user/update_user_modification/'.$data->user_name)?>" method="post" enctype="multipart/form-data">
+                <form class="col-md-12" action="<?php echo base_url('user/update_user_modification/'.$data->user_id)?>" method="post">
                     <div class="col-md-12">
 
                         <div class="card">
@@ -34,28 +34,33 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-<input type="hidden" name="user_name" value="<?=$data->user_id?>">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="field-1" class="control-label">Full Name</label>
                                                 <input type="text" class="form-control" id="field-1" name="full_name" value="<?= $data->full_name ?>" >
+                                            </div>
+                                        </div>
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">User Id</label>
+                                                <input type="text" class="form-control" id="field-2" name="full_namee" value="<?= $data->user_id ?>" readonly="readonly" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="field-1" class="control-label">User Name</label>
 
-                                                <input type="text" class="form-control" id="field-1" name="user_name" value="<?= $data->user_name ?>"  readonly="readonly">
+                                                <input type="text" class="form-control" id="field-3" name="user_name" value="<?= $data->user_name ?>"  readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="field-1" class="control-label">Password</label>
-												<input type="password" id="myInput" class="form-control" id="field-1" name="pass_word" value="<?= $user_info->password?>">
+												<input type="password" id="myInput" class="form-control" id="field-4" name="pass_word" value="<?= $user_info->password?>">
 										<br>
-										<input type="checkbox" onclick="myFunction()"> Show Password
+										<input type="checkbox" onclick="myFunctionx()"> Show Password
 										<script>
-											function myFunction() {
+											function myFunctionx() {
 											var x = document.getElementById("myInput");
 											if (x.type === "password") {
 												x.type = "text";

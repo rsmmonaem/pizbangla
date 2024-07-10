@@ -443,19 +443,27 @@ class Super_admin extends CI_Controller {
         $this->load->view('super_admin/edit_user_super_admin',$data);
     }
 
-    public function edit_user_modification($id) {
+    public function edit_user_modification($user_id) {
         $this->session_data();
         $this->load->model('user_modification_model', 'umm');
-        $data['data'] = $this->umm->get_user_modification_user_name('admin_user',$id);
+        $data['data'] = $this->umm->get_user_modification_user_name('admin_user',$user_id);
  		$this->load->view('super_admin/edit_user_modification', $data);
 
     }
 
-    public function update_user_modification() {
+	public function update_user_modification($user_id) {
         $this->session_data();
         $this->load->model('user_modification_model', 'umm');
-        $this->umm->update_user_modification();
+        $this->umm->update_user_modificationxx($user_id);
         redirect("super_admin/user_modification_list");
+    }
+
+
+	public function update_admin($user_id) {
+        $this->session_data();
+        $this->load->model('user_modification_model', 'umm');
+        $this->umm->update_user_profile($user_id);
+		redirect("super_admin/edit_super_admin/$user_id");
     }
 
     function user_modification_delete($user_mod_id) {

@@ -24,7 +24,7 @@
 
             <div class="row">
 
-                <form class="col-md-12" action="<?php echo base_url('super_admin/update_user_modification/'.$data->user_name)?>" method="post" enctype="multipart/form-data">
+                <form class="col-md-12" action="<?php echo base_url('super_admin/update_admin/'.$data->user_id)?>" method="post" enctype="multipart/form-data">
                     <div class="col-md-12">
 
                         <div class="card">

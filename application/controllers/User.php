@@ -42,11 +42,11 @@ class User extends CI_Controller {
         $this->load->view('user/edit_user',$data);
     }
 
-	public function update_user_modification() {
+	public function update_user_modification($user_id) {
         $this->session_data();
         $this->load->model('user_modification_model', 'umm');
-        $this->umm->update_user_modification();
-		// return redirect()->back();
+        $this->umm->update_user_profile($user_id);
+		redirect("user/edit_user/$user_id");
     }
 
 	

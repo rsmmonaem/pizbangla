@@ -104,38 +104,81 @@ class user_modification_model  extends CI_Model
 
 
 
-    function update_user_modification() {
-        $this->load->library("form_validation");
-        $this->form_validation->set_rules("full_name", "full_name", "xss_clean");
-        // $this->form_validation->set_rules("user_name", "user_name", "xss_clean");
-        // $this->form_validation->set_rules("pass_word", "pass_word", "xss_clean");
-        // $this->form_validation->set_rules("user_type", "user_type", "xss_clean");
-        // $this->form_validation->set_rules("status", "status", "xss_clean");
-		$this->form_validation->set_rules("user_id", "user_id", "xss_clean");
 
 
-		$u_id = $this->input->post('user_id');
-           
-
-            //zone change
-
-            // echo $company_code = $this->input->post('company_code');
-
-
-            //insert data to database
-
-            $data = array(
-                'full_name' => $this->input->post('full_name'),
-                // 'user_name' => $this->input->post('user_name'),
-                // 'pass_word' => $this->input->post('pass_word'),
-                // 'user_type' => $this->input->post('user_type'),
-                // 'status' => $this->input->post('status'),
-            );
+		function update_user_modificationxx($user_id) {
+			$this->load->library("form_validation");
 			
-
-            $this->db->where('user_id', $u_id);
-            $this->db->update('admin_user', $data);
-        }
+			$this->form_validation->set_rules("full_name", "Full Name", "xss_clean");
+			$this->form_validation->set_rules("pass_word", "Password", "xss_clean");
+			
+			if ($this->form_validation->run() == FALSE) {
+				$this->session->set_flashdata('error_message', 'Validation Failed');
+			} else {
+				$data = array(
+					'full_name' => $_POST["full_name"],
+					'pass_word' => $_POST['pass_word'],
+				);
+		
+				$data2 = array(
+					'full_name' => $_POST["full_name"],
+					'password' => $_POST['pass_word'],
+				);
+		
+				// Update in 'admin_user' table
+				$this->db->where('user_id', $user_id);
+				$update_admin_user = $this->db->update('admin_user', $data);
+		
+				// Update in 'p_normal_users' table
+				$this->db->where('user_id', $user_id);
+				$update_normal_user = $this->db->update('p_normal_users', $data2);
+		
+				// Check if both updates were successful
+				if ($update_admin_user && $update_normal_user) {
+					$this->session->set_flashdata('success_message', 'Updated Successfully.');
+				} else {
+					$this->session->set_flashdata('error_message', 'Not Updated Successfully.');
+				}
+			}
+		}
+	
+	
+		function update_user_profile($user_id) {
+			$this->load->library("form_validation");
+			
+			$this->form_validation->set_rules("full_name", "Full Name", "xss_clean");
+			$this->form_validation->set_rules("pass_word", "Password", "xss_clean");
+			
+			if ($this->form_validation->run() == FALSE) {
+				$this->session->set_flashdata('error_message', 'Validation Failed');
+			} else {
+				$data = array(
+					'full_name' => $this->input->post('full_name'),
+					'pass_word' => $this->input->post('pass_word'),
+				);
+		
+				$data2 = array(
+					'full_name' => $this->input->post('full_name'),
+					'password' => $this->input->post('pass_word'),
+				);
+		
+				// Update in 'admin_user' table
+				$this->db->where('user_id', $user_id);
+				$update_admin_user = $this->db->update('admin_user', $data);
+		
+				// Update in 'p_normal_users' table
+				$this->db->where('user_id', $user_id);
+				$update_normal_user = $this->db->update('p_normal_users', $data2);
+		
+				// Check if both updates were successful
+				if ($update_admin_user && $update_normal_user) {
+					$this->session->set_flashdata('success_message', 'Updated Successfully.');
+				} else {
+					$this->session->set_flashdata('error_message', 'Not Updated Successfully.');
+				}
+			}
+		}
+		
     
 
 
