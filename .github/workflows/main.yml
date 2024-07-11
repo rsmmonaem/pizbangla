@@ -20,9 +20,9 @@ jobs:
     - name: Setup FTP deployment
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ftp.upseba.com.bd
-        username: lms.upseba.com.bd@lms.upseba.com.bd
-        password: Monaem66@@
+        server: https://nibiz.online/PizBangla
+        username: pizbangla@nibiz.online
+        password: i3+aXlL}?z+1
         local-dir: ./
         server-dir: /
         exclude: .gitignore
