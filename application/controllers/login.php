@@ -16,7 +16,7 @@ class Login extends CI_Controller {
         if ($this->session->userdata('user_name')) {
 			redirect(base_url());			
 		}else{
-			$this->load->view('super_admin/login');
+			// $this->load->view('super_admin/login');
 		}
 		
     }
