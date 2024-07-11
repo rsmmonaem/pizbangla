@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'https://nibiz.online/PizBangla',
+	'hostname' => 'nibiz.online',
 	'username' => 'root',
 	'password' => 'i]h&U-$?GBOe',
 	'database' => 'nibizonl_pizbangla',
