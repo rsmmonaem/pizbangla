@@ -133,3 +133,5 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 // $autoload['model'] = array('User_modification_model');
+// application/config/autoload.php
+$autoload['model'] = array('User_modification_model');

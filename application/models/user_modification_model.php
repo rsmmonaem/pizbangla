@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class x  extends CI_Model
+class User_modification_model  extends CI_Model
 {
 
 	function __construct()
