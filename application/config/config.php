@@ -2,8 +2,8 @@
 date_default_timezone_set('Asia/Dhaka');
 
 
-//  $config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/PizBangla/';
-$config['base_url'] = 'http://nibiz.online/PizBangla/';
+ $config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/PizBangla/';
+// $config['base_url'] = 'https://nibiz.online/PizBangla/';
 
 
 $config['index_page'] = '';
