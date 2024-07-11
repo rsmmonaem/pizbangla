@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pizbangla',
+	'hostname' => 'nibiz.online',
+	'username' => 'pizbangla@nibiz.online',
+	'password' => 'i]h&U-$?GBOe',
+	'database' => 'nibizonl_pizbangla',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
