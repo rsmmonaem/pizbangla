@@ -20,9 +20,9 @@ jobs:
     - name: Setup FTP deployment
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ftp.nibiz.online
-        username: pizbangla@nibiz.online
-        password: i3+aXlL}?z+1
+        server: ftp.nibizsoft.xyz
+        username: pizbangla@nibizsoft.xyz
+        password: xT$@6f~fXT1B
         local-dir: ./
         server-dir: /
         exclude: .gitignore
