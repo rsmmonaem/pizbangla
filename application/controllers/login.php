@@ -12,6 +12,14 @@ class Login extends CI_Controller {
         $this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
     }
 
+	public function index() {
+        if ($this->session->userdata('user_name')) {
+			redirect(base_url());			
+		}else{
+			$this->load->view('super_admin/login');
+		}
+		
+    }
 
     public function login_process() {
         $user_name      = $_POST["user_name"];
@@ -98,14 +106,7 @@ class Login extends CI_Controller {
     }
 
 
-    public function index() {
-        if ($this->session->userdata('user_name')) {
-			redirect(base_url());			
-		}else{
-			$this->load->view('super_admin/login');
-		}
-		
-    }
+
 }
 
 
