@@ -1,0 +1,807 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Jul 11, 2024 at 07:48 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `pizbangla`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_user`
+--
+
+CREATE TABLE `admin_user` (
+  `u_id` int(11) NOT NULL,
+  `user_id` varchar(33) NOT NULL,
+  `user_name` varchar(33) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `pass_word` varchar(100) NOT NULL,
+  `user_type` varchar(33) NOT NULL,
+  `status` varchar(33) NOT NULL,
+  `update_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin_user`
+--
+
+INSERT INTO `admin_user` (`u_id`, `user_id`, `user_name`, `full_name`, `pass_word`, `user_type`, `status`, `update_date`) VALUES
+(1, 'admin', 'admin', 'Super Admin', 'admin', 'super_admin', 'ENABLE', '2024-10-15 00:00:00'),
+(150, 'X5BoZ3', 'rsmmedia66@gmail.com', 'MOHAMMAD MUNAYAM SOWDAGOR r', 'admin', 'normal_user', 'ENABLE', '0000-00-00 00:00:00'),
+(151, 'YmX7Zc', 'ggdgf@gmail.com', 'rsgrs wefeewf', 'admin', 'normal_user', 'ENABLE', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `birth_chack`
+--
+
+CREATE TABLE `birth_chack` (
+  `birth_chack_id` int(11) NOT NULL,
+  `birth_id` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `birth_chack`
+--
+
+INSERT INTO `birth_chack` (`birth_chack_id`, `birth_id`) VALUES
+(1, '12345678'),
+(2, '5555');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_message`
+--
+
+CREATE TABLE `contact_message` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(250) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_email` varchar(250) NOT NULL,
+  `user_subject` text NOT NULL,
+  `user_message` longtext NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact_message`
+--
+
+INSERT INTO `contact_message` (`id`, `user_id`, `user_name`, `user_email`, `user_subject`, `user_message`, `date`) VALUES
+(12, 'rojavy', 'vinacikyxa', 'bofysogov@mailinator.com', 'Et sit omnis dolore', 'Et quibusdam aut dol', '2024-07-07 18:19:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_page`
+--
+
+CREATE TABLE `contact_page` (
+  `con_id` int(11) NOT NULL,
+  `con_title` text NOT NULL,
+  `con_facebook` text NOT NULL,
+  `con_instagram` text NOT NULL,
+  `con_twitter` text NOT NULL,
+  `con_youtube` text NOT NULL,
+  `con_google` text NOT NULL,
+  `con_email` text NOT NULL,
+  `con_phone` text NOT NULL,
+  `con_address` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact_page`
+--
+
+INSERT INTO `contact_page` (`con_id`, `con_title`, `con_facebook`, `con_instagram`, `con_twitter`, `con_youtube`, `con_google`, `con_email`, `con_phone`, `con_address`) VALUES
+(1, 'যোগাযোগ করুন', 'https://facebook.com', 'https://instagram.com', 'https://twitter.com', 'https://youtube.com', 'https://google.com/', 'defenedap@mailinator.com', '123456789', 'Rerum ipsum autem ne');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
+CREATE TABLE `country` (
+  `id` int(11) NOT NULL,
+  `country_name` varchar(100) NOT NULL,
+  `country_code` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `country_name`, `country_code`) VALUES
+(1, 'Afghanistan', 'AF'),
+(2, 'Armenia', 'AM'),
+(3, 'Azerbaijan', 'AZ'),
+(4, 'Bahrain', 'BH'),
+(5, 'Bangladesh', 'BD'),
+(6, 'Bhutan', 'BT'),
+(7, 'Brunei', 'BN'),
+(8, 'Cambodia', 'KH'),
+(9, 'China', 'CN'),
+(10, 'Cyprus', 'CY'),
+(11, 'Georgia', 'GE'),
+(12, 'India', 'IN'),
+(13, 'Indonesia', 'ID'),
+(14, 'Iran', 'IR'),
+(15, 'Iraq', 'IQ'),
+(16, 'Israel', 'IL'),
+(17, 'Japan', 'JP'),
+(18, 'Jordan', 'JO'),
+(19, 'Kazakhstan', 'KZ'),
+(20, 'Kuwait', 'KW'),
+(21, 'Kyrgyzstan', 'KG'),
+(22, 'Laos', 'LA'),
+(23, 'Lebanon', 'LB'),
+(24, 'Malaysia', 'MY'),
+(25, 'Maldives', 'MV'),
+(26, 'Mongolia', 'MN'),
+(27, 'Myanmar', 'MM'),
+(28, 'Nepal', 'NP'),
+(29, 'North Korea', 'KP'),
+(30, 'Oman', 'OM'),
+(31, 'Pakistan', 'PK'),
+(32, 'Palestine', 'PS'),
+(33, 'Philippines', 'PH'),
+(34, 'Qatar', 'QA'),
+(35, 'Saudi Arabia', 'SA'),
+(36, 'Singapore', 'SG'),
+(37, 'South Korea', 'KR'),
+(38, 'Sri Lanka', 'LK'),
+(39, 'Syria', 'SY'),
+(40, 'Taiwan', 'TW'),
+(41, 'Tajikistan', 'TJ'),
+(42, 'Thailand', 'TH'),
+(43, 'Timor-Leste', 'TL'),
+(44, 'Turkey', 'TR'),
+(45, 'Turkmenistan', 'TM'),
+(46, 'United Arab Emirates', 'AE'),
+(47, 'Uzbekistan', 'UZ'),
+(48, 'Vietnam', 'VN'),
+(49, 'Yemen', 'YE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `dept_id` int(11) NOT NULL,
+  `inst_rel_id` int(11) NOT NULL,
+  `dept_name` varchar(255) NOT NULL,
+  `dept_code` varchar(255) NOT NULL,
+  `dept_image` text NOT NULL,
+  `dept_info` text NOT NULL,
+  `inst_name` varchar(255) DEFAULT NULL,
+  `dept_status` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`dept_id`, `inst_rel_id`, `dept_name`, `dept_code`, `dept_image`, `dept_info`, `inst_name`, `dept_status`) VALUES
+(1, 38, 'WEB RTC', 'WEB_RTC', 'fKIL4ndqgc.jpg', 'Natus provident dol', 'SEO BD', 'Running'),
+(2, 41, 'Laravel', 'Mohammad Luna', 'Jr38hlGbLO.jpg', 'Eaque maiores lorem ', 'Jubo Unnon Odidoptor Ullapara', 'Running'),
+(3, 41, 'Mysqli', 'Minus doloremque ape', 'HBmtOK1nY9.jpg', 'Consequatur laudant', 'Jubo Unnon Odidoptor Ullapara', 'Running'),
+(41, 38, 'php', 'WEB_RTC', 'fKIL4ndqgc.jpg', 'Natus provident dol', 'SEO BD', 'Running');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `institute`
+--
+
+CREATE TABLE `institute` (
+  `inst_id` int(11) NOT NULL,
+  `department_rel_id` int(11) NOT NULL,
+  `inst_user_id` int(11) NOT NULL,
+  `inst_eiin` varchar(60) NOT NULL,
+  `inst_name` varchar(255) NOT NULL,
+  `inst_founded` date NOT NULL,
+  `inst_board` varchar(255) NOT NULL,
+  `inst_logo` varchar(255) NOT NULL,
+  `inst_contact` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `institute`
+--
+
+INSERT INTO `institute` (`inst_id`, `department_rel_id`, `inst_user_id`, `inst_eiin`, `inst_name`, `inst_founded`, `inst_board`, `inst_logo`, `inst_contact`) VALUES
+(38, 44, 275182, 'Qui expedita fugiat', 'Jubo Unnon Odidoptor Ullapara', '2001-10-31', 'Tempor in magnam ame', 'BWLFAvpdEq.jpg', '123'),
+(39, 18, 818210, '546456', 'Joshua Skinner ss', '2024-07-26', 'BTEB', 'vQDsyX7YJm.jpg', '123456'),
+(40, 18, 515900, '70', 'SEO BD', '2006-09-05', 'Islam', 'BUfmj8k2Pc.jpg', '019'),
+(41, 0, 340195, '1504', 'Bogura Self Made Training Institute', '2015-08-02', 'Islam', 'FfZlTn567S.jpg', '01721620');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `measure`
+--
+
+CREATE TABLE `measure` (
+  `msr_id` int(11) NOT NULL,
+  `measure_name` varchar(33) NOT NULL,
+  `measure_code` varchar(33) NOT NULL,
+  `procat_id` int(11) DEFAULT NULL,
+  `pro_cat_name` varchar(33) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `measure`
+--
+
+INSERT INTO `measure` (`msr_id`, `measure_name`, `measure_code`, `procat_id`, `pro_cat_name`) VALUES
+(7, 'Packet', 'MSR-475', NULL, NULL),
+(8, 'Gram', 'MSR-993', NULL, NULL),
+(9, 'KG', 'MSR-376', NULL, NULL),
+(10, 'Piece', 'MSR-109', NULL, NULL),
+(11, 'ML', 'MSR-815', NULL, NULL),
+(13, 'Litter', 'MSR-489', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `news_id` int(11) NOT NULL,
+  `news_title` varchar(255) NOT NULL,
+  `news_description` longtext NOT NULL,
+  `news_image` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`news_id`, `news_title`, `news_description`, `news_image`) VALUES
+(20, 'মাননীয় প্রধানমন্ত্রীর কার্যাল‌য়ের আশ্রায়ণ ', '<p>মাননীয় প্রধানমন্ত্রীর কার্যাল‌য়ের আশ্রায়ণ ২ (দা‌রিদ্র‌ বি‌মোচন ও পূর্নরবাসন) র্শীষক প্রকল্পের আওতায় একক গৃ‌হের উপকার‌ভোগী‌দের দক্ষতা বৃ‌দ্ধিমূলক প্র‌শিক্ষন। এ প্র‌শিক্ষ‌নে ৩৪ টি ব্যা‌চে প্রায় ১২০০ উপকার‌ভোগীর প্র‌শিক্ষন দেওয়া হ‌বে। প্র‌তি‌টি ব্যা‌চে বা‌য়োগ্যাস প্লান্ট ও নিরাপদ জ্বালানী বিষয়ক প্র‌শিক্ষন দেওয়া হ‌চ্ছে।</p><p><br></p><p><img data-filename=\"339299263_617151469866123_7539001249637565258_n.jpg\" xss=removed><br></p>', '7odNKmIweE.jpg'),
+(21, 'প্লান্ট মালিকের নাম: আলহাজ্ব শরিয়ত উল্যাহ কোম্পানি। মোল্লা এগ্রো। শাহাপুর, সেনবাগ, নোয়াখালী', '<p>প্লান্ট মালিকের নাম: আলহাজ্ব শরিয়ত উল্যাহ কোম্পানি। মোল্লা এগ্রো। শাহাপুর, সেনবাগ, নোয়াখালী। সাইজ: ২০০০( দুই হাজার) সি এফ টি।  সি,এস শহীদুল্লাহ্ মিন্টু। ইন্জিনিয়ার ; মাসুম স্যার ( রাজশাহী বিভাগ)  আজ উদ্বোধন করা হলো</p>', 'EIp18jFmVo.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nid_test`
+--
+
+CREATE TABLE `nid_test` (
+  `nid_id` int(11) NOT NULL,
+  `nid_name` varchar(255) NOT NULL,
+  `nid_number` varchar(255) NOT NULL,
+  `nid_dob` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `not_id` int(11) NOT NULL,
+  `not_title` varchar(255) DEFAULT NULL,
+  `not_category` varchar(255) DEFAULT NULL,
+  `not_description` longtext DEFAULT NULL,
+  `not_thumbnail` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL COMMENT 'published,unpublished',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`not_id`, `not_title`, `not_category`, `not_description`, `not_thumbnail`, `status`, `created_at`) VALUES
+(13, 'Sint sed tempore es', NULL, '&nbsp;sifksndfksdf s silkfsdfklsdfndsfkds', NULL, 'published', '2024-07-08 17:26:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `objections`
+--
+
+CREATE TABLE `objections` (
+  `obj_id` int(11) NOT NULL,
+  `obj_title` varchar(255) NOT NULL,
+  `obj_category` varchar(255) NOT NULL,
+  `obj_description` text NOT NULL,
+  `obj_image` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `objections`
+--
+
+INSERT INTO `objections` (`obj_id`, `obj_title`, `obj_category`, `obj_description`, `obj_image`) VALUES
+(3, 'Dignissimos aliquid ', 'Pariatur Maiores no444', 'Amet voluptatem hic', 'srEog2Rb3f.jpg'),
+(2, 'Dignissimos aliquid ', 'Pariatur Maiores no', 'Amet voluptatem hic', 'Juw1WCEHnN.jpg'),
+(4, 'Optio sunt ipsa it', 'Rerum architecto imp444', 'Nostrud velit ea cup', 'Js4kgVIpv3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `pages_id` int(11) NOT NULL,
+  `pages_title` varchar(3000) NOT NULL,
+  `pages_image` text NOT NULL,
+  `pages_description` longtext NOT NULL,
+  `create_at` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`pages_id`, `pages_title`, `pages_image`, `pages_description`, `create_at`) VALUES
+(1, 'আমাদের সম্পর্কে', 'gai8E7lzSv.jpg', '<p>অ্যাডপিসিং প্রক্রিয়ার দিকে মনোযোগ দেওয়া গ্রাহকের জন্য খুবই গুরুত্বপূর্ণ। আমি দরজা খুলব, আমি চাটুকারে তার যন্ত্রণা ব্যাখ্যা করব, এবং কেউ জিজ্ঞাসা করবে না যেন সে দোষী! যাইহোক, অপরাধবোধের যন্ত্রণা এই ফাইন্ডিং ফ্লাইট মহান, ছোট প্রয়োজন, পরিত্রাণ পেতে, আমরা কি গ্রহণ করতে অস্বীকার করতে পারি? কিন্তু সত্যের সত্যতা কী? আমরা তাকে আনন্দের দ্বারা আবদ্ধ হওয়ার অভিযোগ করি। অ্যাডপিসিং প্রক্রিয়ার দিকে মনোযোগ দেওয়া গ্রাহকের জন্য খুবই গুরুত্বপূর্ণ। যাইহোক, নির্বাচিত ত্রুটিটি প্রত্যাখ্যান করার জন্য একটি দুর্দান্ত বিনামূল্যে উপহার হিসাবে পরিণত হবে। অভিযুক্তদের পরিণতি, তার প্রশিক্ষণের বেদনা দ্বারা নির্বাচিত, এই এক আমাদের অধিকাংশ পলায়ন যাক, আমরা যে কেউ কর্তব্য করতে পারেন না, কারণ কেউ প্রায়ই কোন নেই! বেদনা নিতে এবং তোষামোদ করার জন্য, যে কোনো কারণে যারা তার প্রশংসা করে তাদের প্রয়োজনে সে দ্রুত পালিয়ে যায়। খুব</p>', '2023-06-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photo_gallery`
+--
+
+CREATE TABLE `photo_gallery` (
+  `photo_gallery_id` int(11) NOT NULL,
+  `photo_gallery_title` varchar(255) NOT NULL,
+  `photo_gallery_img` varchar(255) NOT NULL,
+  `photo_gallery_action_link` varchar(255) DEFAULT NULL,
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `photo_gallery`
+--
+
+INSERT INTO `photo_gallery` (`photo_gallery_id`, `photo_gallery_title`, `photo_gallery_img`, `photo_gallery_action_link`, `date`) VALUES
+(1, 'ভূমিসেবা সপ্তাহ-২০২৩ (২২-২৮ মে) সংক্রান্ত ', 'NMpSJf8nlo.jpg', 'https://www.bogra.gov.bd/bn/site/view/video_gallery', '2023-08-05'),
+(3, 'ভূমিসেবা সপ্তাহ-২০২৩ (২২-২৮ মে) সংক্রান্ত ', 'NMpSJf8nlo.jpg', 'https://www.bogra.gov.bd/bn/site/view/video_gallery', '2023-08-05'),
+(4, 'জনপ্রশাসন মন্ত্রণালয়ের সহযোগিতায় এবং বিভাগীয় কমিশনারের কার্যালয়, রাজশাহী এর আয়োজনে বিভাগীয় পর্যায়ে \"ইনোভেশন শোকেসিং-২০২২\"এ সফলভাবে অংশগ্রহণের সার্বিক চিত্র।', 'H6QRgeqLhw.jpg', '', '2023-08-05'),
+(5, 'ইম্প্যাক্ট ৩য় পর্যায়(১ম সংশোধিত)খুলনা বিভাগের ০৩ দিন মেয়াদি রাজমিস্ত্রি প্রশিক্ষনের প্রথম দিনের কিছু স্থির চিত্র।', 'wY7irhSZbm.jpg', '', '2023-05-16'),
+(6, 'চাঁপাইনবাবগঞ্জ জেলার শিবগঞ্জ উপজেলায় ইমম্প্যাক্ট ফেজ-৩ ', 'qK6a2sjlN7.jpg', '', '2023-05-25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `project_id` int(11) NOT NULL,
+  `project_name` text NOT NULL,
+  `project_image` text NOT NULL,
+  `project_type` varchar(255) DEFAULT NULL,
+  `project_description` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`project_id`, `project_name`, `project_image`, `project_type`, `project_description`) VALUES
+(7, 'this is test for description photodfggg hghg', 'hHpbnJkvzQ.jpg', '4', '<p>fg fgfb<img data-filename=\"pexels-photo-220453.jpg\" xss=\"removed\"><br></p>'),
+(8, 'চাঁপাইনবাবগঞ্জ জেলার শিবগঞ্জ উপজেলায় ইমম্প্যাক্ট ফেজ-৩ প্রকল্পের সমন্বিত খামার স্থাপন', 'DmpLaf102s.jpg', '2', '<p>চাঁপাইনবাবগঞ্জ জেলার শিবগঞ্জ উপজেলায় ইমম্প্যাক্ট ফেজ-৩ প্রকল্পের সমন্বিত খামার স্থাপন ও সম্প্রসারণ এবং বায়োগ্যাস প্রযুক্তি বিষয়ক ০৫ দিন ব্যাপি প্রশিক্ষণের শুভ উদ্বোধন অনুষ্ঠানে উপস্থিত ছিলেন জনাব মোহাঃ ফজ‌লে এলাহী, উপ স‌চিব, যুব ও ক্রীড়া মন্ত্রণালয় ও জনাব মোঃ লিয়াকত আলী, উপ স‌চিব, যুব ও ক্রীড়া মন্ত্রণালয় আ‌রো উপ‌স্থিত ছি‌লেন  জনাব মোঃ আব্দুল মান্নান উপ প‌রিচালক, যুব উন্নয়ন অধিদপ্তর চাঁপাইনবাবগঞ্জ ও সহকারি পরিচালক জনাব মোঃ মিজানুর রহমান,  উপজেলা যুব উন্নয়ন কর্মকর্তা,ক্রেডিট এন্ড মার্কেটিং অফিসার এবং অন্যান্য কর্মকর্তা বৃন্দ। প‌রে তারা একজন সফল উ‌দ্যোক্তার বা‌য়োগ্যাস প্লান্ট ভি‌জিট ক‌রেন।</p><div><img data-filename=\"348929350_211221965106848_6564176105967772788_n.jpg\" xss=removed><br></div>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p_normal_users`
+--
+
+CREATE TABLE `p_normal_users` (
+  `id` int(50) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `country_id` int(50) NOT NULL,
+  `nid` bigint(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `reff_code` varchar(255) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `p_normal_users`
+--
+
+INSERT INTO `p_normal_users` (`id`, `user_id`, `full_name`, `country_id`, `nid`, `phone`, `email`, `password`, `reff_code`, `created_at`, `updated_at`) VALUES
+(16, 'X5BoZ3', 'MOHAMMAD MUNAYAM SOWDAGOR r', 1, 3243423422, '01968402925', 'rsmmedia66@gmail.com', 'admin', '9UOJgd', '2024-07-08', '2024-07-08'),
+(17, 'YmX7Zc', 'rsgrs wefeewf', 1, 546465, '5345', 'ggdgf@gmail.com', 'admin', 'PsngaY', '2024-07-08', '2024-07-08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slider`
+--
+
+CREATE TABLE `slider` (
+  `slider_id` int(11) NOT NULL,
+  `slider_title` varchar(255) NOT NULL,
+  `slider_image` text NOT NULL,
+  `slider_description` longtext NOT NULL,
+  `slider_category` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`slider_id`, `slider_title`, `slider_image`, `slider_description`, `slider_category`) VALUES
+(2, 'Nostrud tempor at to update', 'o4rk5XmB9A.jpg', 'Perspiciatis verita', 'In excepteur tempore'),
+(15, 'Cumque ratione eaque', '7rqHDAh6dX.jpg', 'Doloribus nostrud do', 'Asperiores perferend');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `st_id` int(11) NOT NULL,
+  `st_name` varchar(255) NOT NULL,
+  `st_date_of_birth` date NOT NULL,
+  `st_gender` varchar(255) NOT NULL,
+  `st_bg_group` varchar(255) NOT NULL,
+  `st_religion` varchar(255) NOT NULL,
+  `st_phone` varchar(255) NOT NULL,
+  `st_nid_no` varchar(255) NOT NULL,
+  `st_birth_certificate_id` varchar(255) NOT NULL,
+  `st_health_condition` varchar(255) NOT NULL,
+  `st_photo` varchar(255) NOT NULL,
+  `st_inst_name` varchar(255) NOT NULL,
+  `st_present_address` varchar(255) NOT NULL,
+  `st_permanent_address` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`st_id`, `st_name`, `st_date_of_birth`, `st_gender`, `st_bg_group`, `st_religion`, `st_phone`, `st_nid_no`, `st_birth_certificate_id`, `st_health_condition`, `st_photo`, `st_inst_name`, `st_present_address`, `st_permanent_address`) VALUES
+(9, 'Jane Finch', '2006-06-28', 'Female', 'A-', 'Buddha', '+1 (606) 945-8267', 'Do enim facere offic', 'Accusamus rerum eaqu', 'Murphy Oconnor', 'jD06VUb2ul.jpg', 'Kaitlin Bryan', 'Pariatur Voluptates', 'Exercitation excepte'),
+(10, 'Charlotte Wyatttt', '1976-05-27', '', '', '', '+1 (127) 151-9324', 'Ab aliquid ipsa iru', 'Aliquip temporibus d', 'Kirk Woodard', 'ljczr571Fs.jpg', 'Medge Estesss', 'Sit corporis vel au', 'Et fugiat ipsam ill'),
+(11, 'Kalia Bryan', '1982-09-16', 'Male', 'O+', 'Islam', '+1 (822) 894-8441', 'Sit mollitia mollit ', 'A facilis laborum V', 'Shaine Edwards', 'E4dvAOlCcu.jpg', 'Dana Calhoun', 'Enim perspiciatis c', 'Ab voluptatem ad co'),
+(12, 'Cheryl Castaneda', '1980-07-19', 'Female', 'O-', 'Buddha', '+1 (257) 613-2372', 'Iure repudiandae lau', 'Est explicabo Et p', 'Uriah Rosario', 'default.png', 'Dana Calhoun', 'Enim corrupti offic', 'Deserunt eos placea');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trainee`
+--
+
+CREATE TABLE `trainee` (
+  `trainee_id` int(11) NOT NULL,
+  `trainee_name` varchar(255) NOT NULL,
+  `trainee_username` varchar(255) NOT NULL,
+  `trainee_password` varchar(255) NOT NULL,
+  `trainee_name_eng` varchar(255) NOT NULL,
+  `trainee_father_name` varchar(255) NOT NULL,
+  `trainee_father_name_eng` varchar(255) NOT NULL,
+  `trainee_mother_name` varchar(255) NOT NULL,
+  `trainee_mother_name_eng` varchar(255) NOT NULL,
+  `trainee_dob` varchar(255) NOT NULL,
+  `trainee_current_age` varchar(255) NOT NULL,
+  `trainee_nid` varchar(255) NOT NULL,
+  `trainee_present_address` text NOT NULL,
+  `trainee_permanent_address` text NOT NULL,
+  `trainee_education` text NOT NULL,
+  `trainee_religion` varchar(255) NOT NULL,
+  `trainee_gender` varchar(255) NOT NULL,
+  `trainee_phone` varchar(255) NOT NULL,
+  `trainee_alternate_phone` varchar(255) NOT NULL,
+  `trainee_past_training` varchar(255) NOT NULL,
+  `dept_name` varchar(255) NOT NULL,
+  `trainee_training_reason` text NOT NULL,
+  `trainee_image` text NOT NULL,
+  `trainee_history` int(11) NOT NULL,
+  `trainee_status` varchar(255) NOT NULL,
+  `inst_name` varchar(255) NOT NULL,
+  `trainee_created_by` varchar(255) DEFAULT NULL,
+  `certificate_status` varchar(255) NOT NULL DEFAULT 'InProcess',
+  `trainee_qr_code` text DEFAULT NULL,
+  `trainee_qr_code_file` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trainee`
+--
+
+INSERT INTO `trainee` (`trainee_id`, `trainee_name`, `trainee_username`, `trainee_password`, `trainee_name_eng`, `trainee_father_name`, `trainee_father_name_eng`, `trainee_mother_name`, `trainee_mother_name_eng`, `trainee_dob`, `trainee_current_age`, `trainee_nid`, `trainee_present_address`, `trainee_permanent_address`, `trainee_education`, `trainee_religion`, `trainee_gender`, `trainee_phone`, `trainee_alternate_phone`, `trainee_past_training`, `dept_name`, `trainee_training_reason`, `trainee_image`, `trainee_history`, `trainee_status`, `inst_name`, `trainee_created_by`, `certificate_status`, `trainee_qr_code`, `trainee_qr_code_file`) VALUES
+(31, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'Web Development', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'SEO BD', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/31', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3331.png'),
+(41, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'WEB RTC', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'Jubo Unnon Odidoptor Ullapara', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/41', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3431.png'),
+(36, 'Durjay Ghosh', 'durjay1', '12345678', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '12365', 'Vero est qui in cons', 'Nihil temporibus adi', '2000', 'Christian', 'Male', '544', '771', 'Walls and Walsh Co', 'Asher Spears', 'Quo aliquid ea est ', 'VedFL52shB.jpg', 0, 'Complete', 'Jubo Unnon Odidoptor Ullapara', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/36', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3336.png'),
+(38, 'Monaem', 'Monaem', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2003', 'Islam', 'Male', '544', '771', 'Mccoy Noel Traders', 'Asher Spears', 'Ab aut voluptatem su', 'YN9IlvT673.jpg', 0, 'Active', 'Jubo Unnon Odidoptor Ullapara', NULL, 'InProcess', NULL, ''),
+(39, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2022', 'Christian', 'Male', '544', '771', 'fsdfd', 'WEB RTC', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'SEO BD', NULL, 'InProcess', NULL, ''),
+(40, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'WEB RTC', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Pending', 'SEO BD', NULL, 'InProcess', NULL, ''),
+(42, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'WEB RTC', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Pending', 'Jubo Unnon Odidoptor Ullapara', NULL, 'InProcess', NULL, ''),
+(43, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'WEB RTC', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Pending', 'Joshua Skinner ss', NULL, 'InProcess', NULL, ''),
+(44, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Atque ipsa neque cu', 'Nihil temporibus adi', '95', 'Christian', 'Male', '544', '771', 'Laborum Quam assume', 'Asher Spears', 'Suscipit nihil tempo', 'VedFL52shB.jpg', 0, 'Pending', 'SEO BD', NULL, 'InProcess', NULL, ''),
+(45, 'Breanna White', '692289', '745147', 'Alisa Hunter', 'Kenyon Hensley', 'Jenette Dyer', 'Ashely Bruce', 'Ruth Bartlett', '2020-11-20', 'Isaiah Franco', '123456789', 'Natus exercitation n', 'Incidunt pariatur ', 'HSC 2015', 'Hindu', 'Male', '123456987', '974', 'php', 'Laravel', 'Quasi recusandae De', 'qWENJCY0FI.jpg', 0, 'Complete', 'SEO BD', NULL, 'Complete', 'http://103.145.112.179/impact-2/home/trainee_certificate/39', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f696d706163742d322f686f6d652f747261696e65655f63657274696669636174652f3339.png'),
+(46, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'Laravel', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'SEO BD', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/46', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3436.png'),
+(47, 'Nathan Atkins', '856245', '362942', 'Rhoda Sargent', 'Charde Roberts', 'Jillian Gardner', 'Nathaniel Schmidt', 'Christian Osborne', '2007-12-31', 'Victor Rodgers', '88888888888888888', 'Doloribus blanditiis', 'Quidem cupidatat off', '+1 (826) 776-5574', 'Islam', 'Female', '24', '169', '+1 (151) 514-2868', '', 'Anim ipsum reiciendi', 'Zj6aCk4DS5.jpg', 0, 'Complete', 'WEB RTC', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/47', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3437.png'),
+(48, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'Mysqli', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Pending', 'Bogura Self Made Training Institute', NULL, 'InProcess', NULL, ''),
+(49, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '123', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'Mysqli', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'Bogura Self Made Training Institute', NULL, 'InProcess', NULL, ''),
+(50, 'Rsm Monaem', '924987', '817549', 'Clayton Foster', 'Alden Giles', 'Charity Galloway', 'Rhona Armstrong', 'Ursula Odom', '1994-03-16', 'Gray Barnes', '12345', 'Labore aut ut maxime', 'Nihil temporibus adi', '2020', 'Christian', 'Male', '544', '771', 'Mccoy Noel Traders', 'lara 2', 'Ab aut voluptatem su', 'VedFL52shB.jpg', 0, 'Complete', 'Laravel', NULL, 'Complete', 'http://103.145.112.179/training_management_system/home/trainee_certificate/50', 'assets/media/qrcode/687474703a2f2f3130332e3134352e3131322e3137392f747261696e696e675f6d616e6167656d656e745f73797374656d2f686f6d652f747261696e65655f63657274696669636174652f3530.png');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- Indexes for table `birth_chack`
+--
+ALTER TABLE `birth_chack`
+  ADD PRIMARY KEY (`birth_chack_id`);
+
+--
+-- Indexes for table `contact_message`
+--
+ALTER TABLE `contact_message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_page`
+--
+ALTER TABLE `contact_page`
+  ADD PRIMARY KEY (`con_id`);
+
+--
+-- Indexes for table `country`
+--
+ALTER TABLE `country`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`dept_id`);
+
+--
+-- Indexes for table `institute`
+--
+ALTER TABLE `institute`
+  ADD PRIMARY KEY (`inst_id`);
+
+--
+-- Indexes for table `measure`
+--
+ALTER TABLE `measure`
+  ADD PRIMARY KEY (`msr_id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
+-- Indexes for table `nid_test`
+--
+ALTER TABLE `nid_test`
+  ADD PRIMARY KEY (`nid_id`);
+
+--
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`not_id`);
+
+--
+-- Indexes for table `objections`
+--
+ALTER TABLE `objections`
+  ADD PRIMARY KEY (`obj_id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`pages_id`);
+
+--
+-- Indexes for table `photo_gallery`
+--
+ALTER TABLE `photo_gallery`
+  ADD PRIMARY KEY (`photo_gallery_id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`project_id`);
+
+--
+-- Indexes for table `p_normal_users`
+--
+ALTER TABLE `p_normal_users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `country_id` (`country_id`);
+
+--
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`slider_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`st_id`);
+
+--
+-- Indexes for table `trainee`
+--
+ALTER TABLE `trainee`
+  ADD PRIMARY KEY (`trainee_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT for table `birth_chack`
+--
+ALTER TABLE `birth_chack`
+  MODIFY `birth_chack_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `contact_message`
+--
+ALTER TABLE `contact_message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `contact_page`
+--
+ALTER TABLE `contact_page`
+  MODIFY `con_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `institute`
+--
+ALTER TABLE `institute`
+  MODIFY `inst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `measure`
+--
+ALTER TABLE `measure`
+  MODIFY `msr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `nid_test`
+--
+ALTER TABLE `nid_test`
+  MODIFY `nid_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `objections`
+--
+ALTER TABLE `objections`
+  MODIFY `obj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `pages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `photo_gallery`
+--
+ALTER TABLE `photo_gallery`
+  MODIFY `photo_gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `p_normal_users`
+--
+ALTER TABLE `p_normal_users`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `trainee`
+--
+ALTER TABLE `trainee`
+  MODIFY `trainee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `p_normal_users`
+--
+ALTER TABLE `p_normal_users`
+  ADD CONSTRAINT `p_normal_users_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
