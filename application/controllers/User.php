@@ -39,7 +39,7 @@ class User extends CI_Controller {
         $this->session_data();
         $this->load->model('user_modification_model', 'umm');
         $data['data'] = $this->umm->get_user_modification_user_name('admin_user',$id);
-        $this->load->view('user/edit_user',$data);
+        $this->load->view('User/edit_user',$data);
     }
 
 	public function update_user_modification($user_id) {
