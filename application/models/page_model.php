@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class page_model extends CI_Model
+class Page_model extends CI_Model
 {
     function about_us_id($table)
     {

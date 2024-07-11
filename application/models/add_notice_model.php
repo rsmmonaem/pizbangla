@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class add_notice_model  extends CI_Model {
+class Add_notice_model  extends CI_Model {
 
 // Create Notice
     function create_notice() {

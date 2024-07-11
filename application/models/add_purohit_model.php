@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class add_purohit_model  extends CI_Model
+class Add_purohit_model  extends CI_Model
 {
 
 // Create Notice

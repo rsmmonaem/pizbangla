@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class guardian_model  extends CI_Model
+class Guardian_model  extends CI_Model
 {
     //Guardian List
 

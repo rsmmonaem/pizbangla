@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class add_institute_model  extends CI_Model {
+class Add_institute_model  extends CI_Model {
     function __construct()
     {
         parent::__construct();

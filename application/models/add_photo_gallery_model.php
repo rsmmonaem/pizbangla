@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class add_photo_gallery_model  extends CI_Model {
+class Add_photo_gallery_model  extends CI_Model {
 
 // Create Notice
     function create_photo_gallery() {
