@@ -18,8 +18,8 @@ class Super_admin extends CI_Controller {
         $this->load->helper('text');
         $this->load->helper('date');
 
-        $this->load->model('user_modification_model', 'umm');
-        $this->load->model('page_model', 'pm');
+        $this->load->model('User_modification_model', 'umm');
+        $this->load->model('Page_model', 'pm');
 
 		 if (!$this->session->userdata('user_name')) {
 			 redirect("login");
@@ -57,13 +57,13 @@ class Super_admin extends CI_Controller {
 
     public function about_us() {
         $this->session_data();
-        $this->load->model('page_model', 'pm');
+        $this->load->model('Page_model', 'pm');
         $data['data'] = $this->pm->about_us_id('pages');
         $this->load->view('super_admin/about_us', $data);
     }
     public function update_about_us(){
         $this->session_data();
-        $this->load->model('page_model', 'pm');
+        $this->load->model('Page_model', 'pm');
         $this->pm->update_about_us();
         redirect("super_admin/about_us","refresh");
     }
@@ -71,14 +71,14 @@ class Super_admin extends CI_Controller {
 
     public function contact_page() {
         $this->session_data();
-        $this->load->model('page_model', 'pm');
+        $this->load->model('Page_model', 'pm');
         $data['data'] = $this->pm->contact_page_id('contact_page');
         $this->load->view('super_admin/contact_page', $data);
     }
 
     public function update_contact_page(){
         $this->session_data();
-        $this->load->model('page_model', 'pm');
+        $this->load->model('Page_model', 'pm');
         $this->pm->update_contact_page();
         redirect("super_admin/contact_page","refresh");
     }
@@ -438,14 +438,14 @@ class Super_admin extends CI_Controller {
 
     public function edit_super_admin($id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $data['data'] = $this->umm->get_user_modification_id('admin_user',$id);
         $this->load->view('super_admin/edit_user_super_admin',$data);
     }
 
     public function edit_user_modification($user_id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $data['data'] = $this->umm->get_user_modification_user_name('admin_user',$user_id);
  		$this->load->view('super_admin/edit_user_modification', $data);
 
@@ -453,7 +453,7 @@ class Super_admin extends CI_Controller {
 
 	public function update_user_modification($user_id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $this->umm->update_user_modificationxx($user_id);
         redirect("super_admin/user_modification_list");
     }
@@ -461,7 +461,7 @@ class Super_admin extends CI_Controller {
 
 	public function update_admin($user_id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $this->umm->update_user_profile($user_id);
 		redirect("super_admin/edit_super_admin/$user_id");
     }
@@ -476,13 +476,13 @@ class Super_admin extends CI_Controller {
 
     public function add_user(){
         $this->session_data();
-       //$this->load->model('user_modification_model', 'umm');
+       //$this->load->model('User_modification_model', 'umm');
        //$this->umm->create_user();
         $this->load->view('super_admin/add_user', 'refresh');
     }
     public function save_user() {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $this->umm->create_user();
         redirect("super_admin/user_modification_list");
     }

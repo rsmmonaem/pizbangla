@@ -16,7 +16,7 @@ class User extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('text');
         $this->load->helper('date');
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $this->load->model('page_model', 'pm');
 
 		 if (!$this->session->userdata('user_name')) {
@@ -37,14 +37,14 @@ class User extends CI_Controller {
 	
     public function edit_user($id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $data['data'] = $this->umm->get_user_modification_user_name('admin_user',$id);
         $this->load->view('User/edit_user',$data);
     }
 
 	public function update_user_modification($user_id) {
         $this->session_data();
-        $this->load->model('user_modification_model', 'umm');
+        $this->load->model('User_modification_model', 'umm');
         $this->umm->update_user_profile($user_id);
 		redirect("user/edit_user/$user_id");
     }
@@ -53,7 +53,7 @@ class User extends CI_Controller {
 
     // public function update_user_modification() {
     //     $this->session_data();
-    //     $this->load->model('user_modification_model', 'umm');
+    //     $this->load->model('User_modification_model', 'umm');
     //     $this->umm->update_user_modification();
     //     redirect("super_admin/user_modification_list");
     // }

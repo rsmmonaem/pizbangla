@@ -6,7 +6,7 @@ class Frontend extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('text');
-		$this->load->model('user_modification_model', 'umm');
+		$this->load->model('User_modification_model', 'umm');
 
     }
     public function session_data(){
@@ -14,7 +14,7 @@ class Frontend extends CI_Controller {
     }
 
 
-	
+
     public function index() {
 		$this->session_data();
 		$user_name = $this->session->userdata('user_name');    
